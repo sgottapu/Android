@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -32,6 +33,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListVh>{
 
     @Override
     public void onBindViewHolder(ListVh holder, int position) {
+        holder.tv_item.setText(photoUrls.get(getCyclePosition(position)));
 //        Picasso.with(holder.mImageView.getContext()).load(photoUrls.get(getCyclePosition(position))).into(holder.mImageView);
 
     }
@@ -44,8 +46,11 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListVh>{
 
     class ListVh extends RecyclerView.ViewHolder{
 
+        TextView tv_item;
+
         public ListVh(View itemView) {
             super(itemView);
+            tv_item = (TextView) itemView.findViewById(R.id.tv_item);
         }
     }
     private int getCyclePosition(int position){

@@ -10,7 +10,7 @@ import android.util.DisplayMetrics;
  */
 
 public class AutoScrollHelper {
-    public float MILLISECONDS_PER_INCH = 5760f;
+    public float MILLISECONDS_PER_INCH = 350000f;
     private final int DEFAULT_SCROLL_ITEMS = 1;
     static int count = 0;
     Handler handler;
@@ -53,7 +53,7 @@ public class AutoScrollHelper {
                 if (count < totalItems) {
                     count = count + scrollItems;
                     recyclerView.smoothScrollToPosition(count);
-                    handler.postDelayed(this, speedScroll);
+                    handler.postDelayed(this, (long) speedScroll);
                 }
             }
         };
